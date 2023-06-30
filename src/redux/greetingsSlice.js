@@ -12,14 +12,13 @@ export const fetchGreeting = createAsyncThunk(
       },
     });
     const data = await response.json();
-    console.log(data.data.greeting, "check")
     return data.data.greeting;
   },
 );
 
 const greetingSlice = createSlice({
   name: 'greeting',
-  initialState: { data: "" },
+  initialState: { data: '' },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchGreeting.fulfilled, (state, action) => {
